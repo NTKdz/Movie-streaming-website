@@ -10,19 +10,19 @@ const axiosInstance = axios.create({
   baseURL: baseURL,
 });
 
-// always get the newest token set in local storage
-axiosInstance.interceptors.request.use(
-  (res) => {
-    const token = localStorage.getItem("token");
-    res.headers.Authorization = token ? `Bearer ${token}` : "";
-    return res;
-  },
-  (err) => Promise.reject(err)
-);
+// // always get the newest token set in local storage
+// axiosInstance.interceptors.request.use(
+//   (res) => {
+//     const token = localStorage.getItem("token");
+//     res.headers.Authorization = token ? `Bearer ${token}` : "";
+//     return res;
+//   },
+//   (err) => Promise.reject(err)
+// );
 
-axiosInstance.interceptors.response.use(
-  (response) => response,
-  (error) => Promise.reject(error)
-);
+// axiosInstance.interceptors.response.use(
+//   (response) => response,
+//   (error) => Promise.reject(error)
+// );
 
 export default axiosInstance;
