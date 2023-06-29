@@ -1,7 +1,8 @@
-import { Box, Button, Grid } from "@mui/material";
+import { Box, Button, Grid, Typography } from "@mui/material";
 import { useEffect } from "react";
 import AnimeSiteHook from "../../redux/api-hooks/animeSiteHook";
 import { RootState, useAppSelector } from "../../redux/store";
+import "./styles.css";
 
 export default function AnimeHomePage() {
   const { getCurrentAnimeEpisodes } = AnimeSiteHook();
@@ -12,14 +13,12 @@ export default function AnimeHomePage() {
     getCurrentAnimeEpisodes();
   }, []);
   return (
-    <>
-      <Button variant="outlined">Primary</Button>
-
+    <Box className="anime-homePage-container">
       <Grid
         container
         spacing={2}
         sx={{
-          width: 1000,
+          width: "100%",
           minWidth: 0,
           display: "flex",
           flexWrap: "wrap",
@@ -27,25 +26,53 @@ export default function AnimeHomePage() {
           flexDirection: "row",
           justifyContent: "center",
           alignItems: "center",
+          margin: "0px",
         }}
       >
-        {animeHomePage.results.map((item) => (
-          <>
-            <Grid xs={2}>
-              <Box
-                component="img"
+        {Array.isArray(animeHomePage.results) &&
+          animeHomePage.results.map((item: any) => (
+            <>
+              <Grid
+                className="episode-title-container"
+                md={2}
+                xs={4}
                 sx={{
-                  height: "200px",
-                  width: "100%",
-                  maxHeight: "300px",
-                  maxWidth: { xs: 350, md: 250 },
+                  position: "relative",
+                  border: "1px solid #202020",
+                  borderRadius: "5px",
                 }}
-                src={item.image}
-              />
-            </Grid>
-          </>
-        ))}
+              >
+                <Box width="100%" display="flex" justifyContent="center">
+                  <Box
+                    component="img"
+                    sx={{
+                      height: "auto",
+                      width: "50%",
+                      borderRadius: "5px",
+                    }}
+                    src={item.image}
+                  />
+                </Box>
+                <Typography
+                  noWrap
+                  sx={{
+                    overFlow: "hidden",
+                    wordWrap: "none",
+                    height: "20px",
+                    marginTop: "0px",
+                  }}
+                  display="block"
+                  color="textPrimary"
+                  variant="caption"
+                  align="center"
+                >
+                  {item.title}
+                </Typography>
+                <Box className="episode-image-overlay"></Box>
+              </Grid>
+            </>
+          ))}
       </Grid>
-    </>
+    </Box>
   );
 }

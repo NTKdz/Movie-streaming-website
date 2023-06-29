@@ -4,6 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
+import { Box } from "@mui/material";
 
 const darkTheme = createTheme({
   palette: {
@@ -29,8 +30,8 @@ export default function LayOut() {
   return (
     <>
       <ThemeProvider theme={darkTheme}>
+        {location.pathname !== "/pageSelection" && <NavBar />}
         {isDarkMode && <CssBaseline />}
-        {/* {location.pathname !== "/pageSelection" && <NavBar />} */}
         <Outlet />
       </ThemeProvider>
     </>
