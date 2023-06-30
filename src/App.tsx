@@ -6,6 +6,7 @@ import PageSelection from "./views/PageSelection";
 import LayOut from "./views/LayOut";
 import MovieHomePage from "./views/movie-streaming-page/MovieHomePage";
 import AnimeHomePage from "./views/anime-streaming-page/AnimeHomePage";
+import AnimeInfo from "./views/anime-streaming-page/AnimeInfo";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,12 @@ const router = createBrowserRouter([
       {
         path: "anime",
         element: <AnimeHomePage />,
+        children: [
+          {
+            path: ":chosenAnime",
+            element: <AnimeInfo />,
+          },
+        ],
       },
     ],
   },

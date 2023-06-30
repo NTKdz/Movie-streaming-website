@@ -30,8 +30,8 @@ export default function LayOut() {
   return (
     <>
       <ThemeProvider theme={darkTheme}>
+        {isDarkMode && <CssBaseline />}{" "}
         {location.pathname !== "/pageSelection" && <NavBar />}
-        {isDarkMode && <CssBaseline />}
         <Outlet />
       </ThemeProvider>
     </>

@@ -1,16 +1,18 @@
-.episode-image-overlay {
+/* .episode-image-overlay {
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  left: 0px;
+  top: 0px;
+ 
+  margin-top: 0px;
   height: 100%;
   width: 100%;
   opacity: 0;
   transition: 0.5s ease;
-  background-color: #008cba;
+  background-color: black;
+  filter: blur(8px);
+  -webkit-filter: blur(5px);
 }
 
-.episode-title-container:hover .episode-image-overlay{
-    opacity:1;
-}
+.episode-title-container:hover .episode-image-overlay {
+  opacity: 1;
+} */
