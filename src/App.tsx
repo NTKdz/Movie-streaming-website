@@ -21,12 +21,10 @@ const router = createBrowserRouter([
       {
         path: "anime",
         element: <AnimeHomePage />,
-        children: [
-          {
-            path: ":chosenAnime",
-            element: <AnimeInfo />,
-          },
-        ],
+      },
+      {
+        path: "anime/:chosenAnime",
+        element: <AnimeInfo />,
       },
     ],
   },
