@@ -1,5 +1,8 @@
 import axiosInstance from "../../axios/axios";
-import { setCurrentAnimeEpisode } from "../slices/animeSlice";
+import {
+  setCurrentAnimeEpisode,
+  setCurrentAnimeInfo,
+} from "../slices/animeSlice";
 import { RootState, useAppDispatch, useAppSelector } from "../store";
 
 export default function AnimeSiteHook() {
@@ -21,5 +24,17 @@ export default function AnimeSiteHook() {
       console.log(e.message);
     }
   }
-  return { getCurrentAnimeEpisodes };
+  async function getCurrentAnimeInfo(id: string) {
+    try {
+      const data = await axiosInstance.get(`/anime/gogoanime/info/${id}`);
+      if (data.status === 200) {
+        console.log(data.data);
+        dispatch(setCurrentAnimeInfo(data.data));
+      }
+    } catch (e: any) {
+      console.log(e.message);
+    }
+  }
+
+  return { getCurrentAnimeEpisodes, getCurrentAnimeInfo };
 }

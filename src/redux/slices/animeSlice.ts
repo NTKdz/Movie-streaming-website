@@ -15,11 +15,34 @@ export interface animeHomePage {
   ];
 }
 
+export interface animeInfo {
+  id: string;
+  title: string;
+  url: string;
+  image: string;
+  releaseDate: string | null;
+  description: string | null;
+  genres: string[];
+  subOrDub: "sub";
+  type: string | null;
+  status: "Ongoing";
+  otherName: string | null;
+  totalEpisodes: number;
+  episodes: [
+    {
+      id: string;
+      number: number;
+      url: string;
+    }
+  ];
+}
 export interface animeStreamingSite {
   animeHomePage: animeHomePage;
+  animeInfo: animeInfo;
 }
 const initialState: animeStreamingSite = {
   animeHomePage: {} as animeHomePage,
+  animeInfo: {} as animeInfo,
 };
 export const animeSlice = createSlice({
   name: "animeSlice",
@@ -28,8 +51,12 @@ export const animeSlice = createSlice({
     setCurrentAnimeEpisode: (state, action: PayloadAction<animeHomePage>) => {
       state.animeHomePage = action.payload;
     },
+    setCurrentAnimeInfo: (state, action: PayloadAction<animeInfo>) => {
+      state.animeInfo = action.payload;
+    },
   },
 });
 
-export const { setCurrentAnimeEpisode } = animeSlice.actions;
+export const { setCurrentAnimeEpisode, setCurrentAnimeInfo } =
+  animeSlice.actions;
 export default animeSlice.reducer;
