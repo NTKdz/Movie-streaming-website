@@ -1,8 +1,7 @@
-import { Box, Button, Grid, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import { useEffect } from "react";
 import AnimeSiteHook from "../../redux/api-hooks/animeSiteHook";
 import { RootState, useAppSelector } from "../../redux/store";
-import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline";
 import "./styles.css";
 import { useParams } from "react-router-dom";
 

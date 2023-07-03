@@ -1,10 +1,10 @@
 import "./styles.css";
-import { Box, Button, Grid, Typography } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import { useEffect } from "react";
 import AnimeSiteHook from "../../redux/api-hooks/animeSiteHook";
 import { RootState, useAppSelector } from "../../redux/store";
 import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline";
-import { Outlet, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function AnimeHomePage() {
   const navigate = useNavigate();
