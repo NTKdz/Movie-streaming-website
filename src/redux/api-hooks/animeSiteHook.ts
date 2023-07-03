@@ -3,12 +3,9 @@ import {
   setCurrentAnimeEpisode,
   setCurrentAnimeInfo,
 } from "../slices/animeSlice";
-import { RootState, useAppDispatch, useAppSelector } from "../store";
+import { useAppDispatch } from "../store";
 
 export default function AnimeSiteHook() {
-  const { animeHomePage } = useAppSelector(
-    (state: RootState) => state.animeState
-  );
   const dispatch = useAppDispatch();
 
   async function getCurrentAnimeEpisodes() {

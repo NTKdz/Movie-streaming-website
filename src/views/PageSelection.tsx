@@ -5,12 +5,6 @@ import "./pageSelectorStyles.css";
 export default function PageSelection() {
   const navigate = useNavigate();
 
-  const style = {
-    hover: {
-      backgroundColor: "blue",
-    },
-  };
-
   function selectPage() {
     navigate("/anime");
   }

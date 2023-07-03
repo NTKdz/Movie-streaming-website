@@ -21,6 +21,7 @@ export default function LayOut() {
     if (location.pathname === "/") {
       navigate("/pageSelection");
     }
+    toggleDarkMode();
   }, [location.pathname]);
 
   function toggleDarkMode() {
@@ -29,7 +30,7 @@ export default function LayOut() {
   return (
     <>
       <ThemeProvider theme={darkTheme}>
-        {isDarkMode && <CssBaseline />}{" "}
+        {isDarkMode && <CssBaseline />}
         {location.pathname !== "/pageSelection" && <NavBar />}
         <Outlet />
       </ThemeProvider>
