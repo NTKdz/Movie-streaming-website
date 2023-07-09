@@ -21,7 +21,7 @@ export default function LayOut() {
     if (location.pathname === "/") {
       navigate("/pageSelection");
     }
-    toggleDarkMode();
+   
   }, [location.pathname]);
 
   function toggleDarkMode() {

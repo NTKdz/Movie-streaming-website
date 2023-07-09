@@ -30,7 +30,7 @@ export default function AnimeSiteHook() {
       }
     } catch (e: any) {
       console.log(e.message);
-    }
+    } 
   }
 
   return { getCurrentAnimeEpisodes, getCurrentAnimeInfo };
